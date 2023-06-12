@@ -9,12 +9,12 @@ export default function Register() {
       style={{ background: 'url("/images/background.png")' }}
     >
       <Link href="/">
-        <div className="flex flex-col items-center p-6 gap-1">
+        <div className="flex flex-col items-center p-3 sm:p-6 gap-1 ">
           <Image src="/images/logo.png" alt="logo" width={70} height={70} />
           <h1 className="text-white text-3xl font-semibold px-3">DegChain</h1>
         </div>
       </Link>
-      <div className="container p-3 h-7/10 w-1/3 bg-gray-800 opacity-90 text-black flex 
+      <div className="container p-3 h-fit w-4/5 sm:w-96 bg-gray-800 opacity-90 text-black flex 
       flex-col item-center gap-4 rounded-xl">
         <h1 className="text-white font-bold text-2xl text-center">Sign Up</h1>
         <hr className="text-white w-full  " />
@@ -26,7 +26,7 @@ export default function Register() {
             name="rollno"
           />
           <input
-            className="bg-slate-200 p-2 w-4/5 text-black"
+            className="bg-slate-200 p-2 w-4/5 text-black "
             type="text"
             placeholder="Password"
             name="password"
@@ -43,8 +43,7 @@ export default function Register() {
             placeholder="Email"
             name="email"
           />
-          <button className='bg-white w-4/5 font-bold py-2 px-4 m-3 rounded-full text-black '>
-
+          <button className='bg-white w-4/5 font-bold py-2 px-4 m-1 sm:m-3 rounded-full text-black '>
             Sign Up
           </button>
         </form>
