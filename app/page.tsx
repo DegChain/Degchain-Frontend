@@ -40,7 +40,7 @@ export default function Home() {
         <h2 className='text-white  text-center pt-10 text-2xl font-medium px-10'>
           The Document Management Systems Infrastructure:
         </h2>
-        <div className='flex flex-row flex-wrap justify-around gap-4 items-start p-10 '>
+        <div className='flex flex-row flex-wrap justify-around gap-4 items-start py-10 px-5 sm:px-10 '>
           <div className='flex flex-col basis-1/3 md:basis-1/5 items-center text-center gap-2  '>
             <Image src="/images/image1.png" alt="" width={200} height={200} />
             <p className='text-white font-medium'>Web UI for administrators</p>
@@ -65,7 +65,7 @@ export default function Home() {
         <h2 className='text-black text-center pt-10 text-2xl font-medium'>
           DegChains Features:
         </h2>
-        <div className='flex flex-row flex-wrap justify-around gap-4 items-start p-10 '>
+        <div className='flex flex-row flex-wrap justify-around gap-4 items-start py-10 px-5 sm:px-10 '>
           <div className='flex flex-col basis-1/3 md:basis-1/5  items-center text-center gap-2'>
             <Image src="/images/feature1.png" alt="" width={60} height={60} className='justify-start' />
             <p className='text-black'>System instance setup</p>
