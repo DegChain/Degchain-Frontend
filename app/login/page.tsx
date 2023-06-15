@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 
-export default function Register() {
+export default function Login() {
   return (
     <div
       className="bg-cover w-full h-screen text-white flex flex-col items-center"

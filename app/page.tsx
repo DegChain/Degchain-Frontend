@@ -125,8 +125,10 @@ export default function Home() {
           />
           <button className='bg-white text-black'>Go  </button>
         </form>
-      </div>
 
+
+      </div>
+      <Link href="/admin" >admin</Link>
     </main>
   )
 }
