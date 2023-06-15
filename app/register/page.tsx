@@ -44,13 +44,13 @@ export default function Register() {
           user &&
           <form className="flex flex-col items-center gap-3" action="">
             <input
-              className="bg-slate-200 p-2 w-4/5 text-black"
+              className="bg-slate-200 p-2 w-4/5 text-black placeholder:text-gray-600"
               type="text"
               placeholder="Roll No"
               name="rollno"
             />
             <input
-              className="bg-slate-200 p-2 w-4/5 text-black "
+              className="bg-slate-200 p-2 w-4/5 text-black  "
               type="Date"
               placeholder="Date of Birth"
               name="dob"
@@ -71,13 +71,13 @@ export default function Register() {
           admin &&
           <form className="flex flex-col items-center gap-3" action="">
             <input
-              className="bg-slate-200 p-2 w-4/5 text-black"
+              className="bg-slate-200 p-2 w-4/5 text-black placeholder:text-gray-600"
               type="text"
               placeholder="Email Id"
               name="email"
             />
             <input
-              className="bg-slate-200 p-2 w-4/5 text-black "
+              className="bg-slate-200 p-2 w-4/5 text-black placeholder:text-gray-600 "
               type="password"
               placeholder="Password"
               name="password"

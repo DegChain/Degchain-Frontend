@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function View() {
   return (
     <div>
-    <nav className='flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm
+    <nav className='flex flex-row justify-between bg-black px-2 w-full h-20 items-center fixed shadow-sm
     shadow-white'>
 
     <Link href="/admin">
@@ -17,18 +17,32 @@ export default function View() {
       <h1 className='text-white text-xl sm:text-3xl font-semibold px-3'>View Files</h1>
     </div>
     
-    <Image src="/images/college.png" alt="logo" width={55} height={55} />
+    <div className="flex flex-row gap-3 items-center">
+        <Link href="/"><button className='bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1' >Logout</button>  </Link>
+        <Image src="/images/college.png" alt="logo" width={55} height={55} />
+        </div>
 
   </nav>
+
     <div
       className="bg-cover w-full h-screen flex flex-row justify-center items-center"
       style={{ background: 'url("/images/background.png")' }}
     >
       
-      <div className="container w-96 h-96 bg-gray-800 opacity-90 text-black flex 
-      flex-col item-center gap-5 rounded-xl">
+      <div className="container p-3 h-fit w-4/5 sm:w-96 flex flex-row justify-center items-center bg-gray-800 opacity-90 text-black  rounded-xl">
         
-      <h1>view</h1>
+      <form className="h-full flex flex-col justify-evenly my-8 items-center gap-8">
+            <input
+              className="bg-gray-300 p-2 w-full text-black placeholder:text-gray-600"
+              type="text"
+              placeholder="Enter Roll No"
+              name="roll no"
+            />
+            <button className='bg-white w-2/5 font-bold py-2 px-4 rounded-full text-black '>
+              Submit
+            </button>
+
+          </form>
 
       </div>
     </div>

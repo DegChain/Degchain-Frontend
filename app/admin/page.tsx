@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Admin() {
   return (
     <div>
-      <nav className='flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm
+      <nav className='flex flex-row justify-between bg-black px-2 w-full h-20 items-center fixed shadow-sm
     shadow-white'>
 
         <Link href="/admin">
@@ -15,7 +15,10 @@ export default function Admin() {
           <h1 className='text-white text-xl sm:text-3xl font-semibold px-3'>Admins Dashboard</h1>
         </div>
 
+        <div className="flex flex-row gap-3 items-center">
+        <Link href="/"><button className='bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1' >Logout</button>  </Link>
         <Image src="/images/college.png" alt="logo" width={55} height={55} />
+        </div>
 
       </nav>
 

@@ -20,7 +20,7 @@ export default function Login() {
         <hr className="text-white w-full  " />
         <form className="flex flex-col items-center gap-3" action="">
           <input
-            className="bg-slate-200 p-2 w-4/5 text-black"
+            className="bg-slate-200 p-2 w-4/5 text-black placeholder:text-gray-600"
             type="text"
             placeholder="Private Key"
             name="key"
