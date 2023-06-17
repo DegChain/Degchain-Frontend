@@ -31,7 +31,12 @@ export default function Home() {
                     <Link href="/login">
                         <button className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1">
                             Login
-                        </button>{" "}
+                        </button>
+                    </Link>
+                    <Link href="/login">
+                        <button className="bg-white align-middle sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1">
+                            Connect Wallet
+                        </button>
                     </Link>
                 </div>
             </nav>
