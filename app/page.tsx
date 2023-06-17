@@ -13,7 +13,7 @@ export default function Home() {
                         <Image
                             src="/images/logo.png"
                             alt="logo"
-                            width={65}
+                            width={15}
                             height={65}
                         />
                         <h1 className="text-white text-xl sm:text-3xl font-semibold px-3">
