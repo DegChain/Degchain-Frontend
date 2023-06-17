@@ -1,10 +1,54 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+
+const Dropdown = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <div className="dropdown relative inline-block">
+            <button
+                className="dropbtn bg-white text-black text-lg px-4 py-2 "
+                onClick={toggleDropdown}
+            >
+                Options
+            </button>
+            {isOpen && (
+                <div className="dropdown-content absolute mt-2 bg-white rounded-md shadow-lg ">
+                    <Link href="/register">
+                        <button className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1 ">
+                            Register
+                        </button>
+                    </Link>
+                    <hr className="bg-black " />
+                    <Link href="/login">
+                        <button className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1 ">
+                            Login
+                        </button>
+                    </Link>
+                    <hr className="bg-black " />
+
+                    <button className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1 ">
+                        Connect Wallet
+                    </button>
+                </div>
+            )}
+        </div>
+    );
+};
 
 export default function Home() {
     return (
         <main>
-            <nav className="flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm shadow-white">
+            <nav
+                className="flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm
+        shadow-white"
+            >
                 <Link href="/">
                     <div className="px-2 phone:px-5 flex flex-row justify-start items-center">
                         <Image
@@ -19,7 +63,7 @@ export default function Home() {
                     </div>
                 </Link>
 
-                <div className="flex flex-row justify-evenly sm:flex-auto">
+                <div className="flex flex-row justify-evenly basis-1/4">
                     <Link href="/register">
                         <button className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1">
                             Register
@@ -30,9 +74,11 @@ export default function Home() {
                             Login
                         </button>
                     </Link>
-                    <button className="bg-white align-middle sm:text-md sm:w-24 h-9 phone:h-11 px-2 phone:px-3 rounded-full m-1">
-                        Connect Wallet
-                    </button>
+                    <Link href="/login">
+                        <button className="bg-white align-middle sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1">
+                            Connect Wallet
+                        </button>
+                    </Link>
                 </div>
             </nav>
 

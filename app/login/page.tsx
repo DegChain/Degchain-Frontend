@@ -8,12 +8,20 @@ export default function Login() {
       className="bg-cover w-full h-screen text-white flex flex-col items-center"
       style={{ background: 'url("/images/background.png")' }}
     >
-      <Link href="/">
-        <div className="flex flex-col items-center p-6 gap-1">
-          <Image src="/images/logo.png" alt="logo" width={90} height={90} />
-          <h1 className="text-white text-3xl font-semibold px-3">DegChain</h1>
+      <div className="relative w-full px-4">
+        <div className="absolute top-1 right-1">
+          <button className="bg-white text-black align-middle sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1">
+            Connect Wallet
+          </button>
         </div>
-      </Link>
+        <Link href="/">
+          <div className="flex flex-col items-center p-3 sm:p-6 gap-1">
+            <Image src="/images/logo.png" alt="logo" width={70} height={70} />
+            <h1 className="text-white text-3xl font-semibold px-3">DegChain</h1>
+          </div>
+        </Link>
+      </div>
+    
       <div className="container p-3 h-fit w-max sm:w-96 bg-gray-800 opacity-90 text-black flex 
       flex-col item-center gap-5 rounded-xl">
         <h1 className="text-white font-bold text-2xl text-center">Sign In</h1>
