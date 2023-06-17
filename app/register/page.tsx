@@ -20,24 +20,31 @@ export default function Register() {
       className="bg-cover w-full h-screen text-white flex flex-col items-center"
       style={{ background: 'url("/images/background.png")' }}
     >
-      <Link href="/">
-        <div className="flex flex-col items-center p-3 sm:p-6 gap-1 ">
-          <Image src="/images/logo.png" alt="logo" width={70} height={70} />
-          <h1 className="text-white text-3xl font-semibold px-3">DegChain</h1>
+      <div className="relative w-full px-4">
+        <div className="absolute top-1 right-1">
+          <button className="bg-white text-black align-middle sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1">
+            Connect Wallet
+          </button>
         </div>
-      </Link>
-
+        <Link href="/">
+          <div className="flex flex-col items-center p-3 sm:p-6 gap-1">
+            <Image src="/images/logo.png" alt="logo" width={70} height={70} />
+            <h1 className="text-white text-3xl font-semibold px-3">DegChain</h1>
+          </div>
+        </Link>
+      </div>
+   
       <div className="container p-3 h-fit w-4/5 sm:w-96 bg-gray-800 opacity-90 text-black flex 
       flex-col item-center gap-4 rounded-xl">
         <h1 className="text-white font-bold text-2xl text-center">Sign Up</h1>
-        
+
         <hr className="text-white w-full  " />
-        
+
         <div className="flex flex-row justify-evenly text-white  font-bold text-2xl text-center">
           <button className="w-full h-fit rounded-md " style={{ backgroundColor: user ? "white" : "black", color: user ? "black" : "white" }} onClick={handleUser}>User</button>
           <button className="w-full h-fit rounded-md " style={{ backgroundColor: admin ? "white" : "black", color: admin ? "black" : "white" }} onClick={handleAdmin} >Admin</button>
         </div>
-        
+
         <hr className="text-white w-full" />
 
         {
@@ -89,11 +96,11 @@ export default function Register() {
         }
 
         <hr className="text-white w-full  " />
-        
+
         <p className="text-white text-lg text-center">
           Already Registered?  <b className="pl-2 text-xl"><Link href="/login">Sign in</Link></b>
         </p>
-        
+
       </div>
     </div>
   )
