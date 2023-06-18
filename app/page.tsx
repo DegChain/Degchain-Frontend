@@ -1,15 +1,15 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from 'react';
-
+import { useState } from "react";
+import { ConnectButton } from "@web3uikit/web3";
+import { useMoralis, MoralisProvider } from "react-moralis";
 const Dropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
-
     return (
         <div className="dropdown relative inline-block">
             <button
@@ -32,23 +32,20 @@ const Dropdown = () => {
                         </button>
                     </Link>
                     <hr className="bg-black " />
-
-                        <button className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1 ">
-                            Connect Wallet
-                        </button>
+                    <div className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1 ">
+                        <ConnectButton moralisAuth={false} />
+                    </div>
                 </div>
-
             )}
         </div>
     );
 };
 
 export default function Home() {
+    // const { enableWeb3 } = useMoralis();
     return (
         <main>
-            <nav
-                className="flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm shadow-white"
-            >
+            <nav className="flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm shadow-white">
                 <Link href="/">
                     <div className="px-2 phone:px-5 flex flex-row justify-start items-center">
                         <Image
@@ -78,9 +75,9 @@ export default function Home() {
                                 Login
                             </button>
                         </Link>
-                            <button className="bg-white align-middle sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1">
-                                Connect Wallet
-                            </button>
+                        <div className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1 ">
+                            <ConnectButton moralisAuth={false} />
+                        </div>
                     </div>
                 </div>
             </nav>
