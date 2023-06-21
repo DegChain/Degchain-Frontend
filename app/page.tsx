@@ -101,6 +101,8 @@ export default function Home() {
                     </section>
 
                     <Link href="/admin">Admin</Link>
+                    <Link href="/user">User</Link>
+
                 </main>
             </NotificationProvider>
         </MoralisProvider>

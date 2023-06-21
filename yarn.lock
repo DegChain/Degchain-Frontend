@@ -2756,7 +2756,7 @@
   resolved "https://registry.yarnpkg.com/@web3uikit/config/-/config-0.1.2.tgz#0f61701c094ce40269c59e61cb19d8326dba76ec"
   integrity sha512-fOY0jxen7nEfivZc7BKm63WRcNEncidFhk+dIVR/0bj4tt5Xl0xyomPgyQqe38d3/PJ3RvqVTdupWFbWNJULkA==
 
-"@web3uikit/core@*", "@web3uikit/core@^1.1.5":
+"@web3uikit/core@*":
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/@web3uikit/core/-/core-1.1.5.tgz#66c245598ebb532b2f30feabb9f434f5dc453375"
   integrity sha512-pSlHDVxTHMBQxGnpXKvu6F6dMaEkNVwD1uWXqGWtyLdgnD9PiYmm8a2eIlvopIHMCeUpnv/i74WjySoLVvbI/A==
@@ -2766,7 +2766,7 @@
     "@web3uikit/styles" "*"
     react-router-dom "^6.3.0"
 
-"@web3uikit/icons@*", "@web3uikit/icons@^1.1.2":
+"@web3uikit/icons@*":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@web3uikit/icons/-/icons-1.1.2.tgz#eb87298904351f79601b9e45a09c6121ba3dc94b"
   integrity sha512-ewoHjawkrcWf2INUsOYS5Oa1f106dMyCoLj2mmjWaZYsds3ZkyfwNzq+hb5xavYL3DMIayVqzsUzBXjNAg8NuA==
