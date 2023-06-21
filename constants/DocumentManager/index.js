@@ -1,6 +1,7 @@
-import "./contractAddress.json" as contractAddress;
-import "./abi.json" as abi
+const contractAddresss = require("./contractAddress.json");
+const abi = require("./abi.json");
 
 module.exports = {
-    contractAddress, abi
-}
+    contractAddress,
+    abi,
+};
