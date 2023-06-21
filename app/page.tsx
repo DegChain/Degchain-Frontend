@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ethers } from "ethers";
+import { MoralisProvider } from "react-moralis";
+import { NotificationProvider } from "web3uikit";
 import {
     contractAddress as DocContractAddress,
     abi as DocABI,
@@ -15,17 +17,14 @@ import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import FeatureCard from "@/components/FeatureCard";
 
-const supportedChains = [111555111, 31337];
-import { useMoralis } from "react-moralis";
+
 export default function Home() {
-    const { isWeb3Enabled, chainId } = useMoralis(); //to get network information
+     //to get network information
     return (
+        <MoralisProvider initializeOnMount={false}>
+        <NotificationProvider>
         <main>
-            {isWeb3Enabled ? (
-                <Navbar />
-            ) : (
-                <div>Please connect to a wallet.</div>
-            )}
+            <Navbar/>
             <HeroSection />
 
             <section className="h-98 bg-black rounded-t-3xl mt-2">
@@ -104,5 +103,7 @@ export default function Home() {
 
             <Link href="/admin">Admin</Link>
         </main>
+        </NotificationProvider>
+        </MoralisProvider>
     );
 }

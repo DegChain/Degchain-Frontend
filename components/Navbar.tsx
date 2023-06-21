@@ -3,7 +3,11 @@ import Link from "next/link";
 import Dropdown from "./DropDown";
 import { useState } from "react";
 import { ConnectButton } from "web3uikit";
+
+import { useMoralis } from "react-moralis";
 const Navbar = () => {
+    const supportedChains = [111555111, 31337];
+    const { isWeb3Enabled, chainId, user } = useMoralis();
     return (
         <nav className="flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm shadow-white">
             <Link href="/">
