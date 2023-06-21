@@ -2,8 +2,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ConnectButton } from "@web3uikit/web3";
-import { useMoralis, MoralisProvider } from "react-moralis";
+import { ethers } from "ethers";
+import { Web3ModalSign, useConnect } from "@web3modal/sign-react";
+import {
+    contractAddress as DocContractAddress,
+    abi as DocABI,
+} from "../constants/DocumentManager/index";
+import {
+    contractAddress as UserContractAddress,
+    abi as UserABI,
+} from "../constants/UserManager/index";
+
+//adding the projectID
+const projectId = "3a09c1a599864d22ee00855246072ca8" || "";
+if (!projectId) {
+    throw new Error("You need to provide NEXT_PUBLIC_PROJECT_ID env variable");
+}
 const Dropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +47,7 @@ const Dropdown = () => {
                     </Link>
                     <hr className="bg-black " />
                     <div className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1 ">
-                        <ConnectButton moralisAuth={false} />
+                        <button>Connect Wallet</button>
                     </div>
                 </div>
             )}
@@ -43,6 +57,27 @@ const Dropdown = () => {
 
 export default function Home() {
     // const { enableWeb3 } = useMoralis();
+    const [disabled, setDisabled] = useState(false);
+    const { connect } = useConnect({
+        requiredNamespaces: {
+            eip155: {
+                methods: ["eth_sendTransaction", "personal_sign"],
+                chains: ["eip155:1"],
+                events: ["chainChanged", "accountsChanged"],
+            },
+        },
+    });
+    async function onConnect() {
+        try {
+            setDisabled(true);
+            const session = await connect();
+            console.info(session);
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setDisabled(false);
+        }
+    }
     return (
         <main>
             <nav className="flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm shadow-white">
@@ -71,12 +106,27 @@ export default function Home() {
                             </button>
                         </Link>
                         <Link href="/login">
-                            <button className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1">
+                            <button
+                                onClick={onConnect}
+                                disabled={disabled}
+                                className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1"
+                            >
                                 Login
                             </button>
+                            <Web3ModalSign
+                                projectId={projectId}
+                                metadata={{
+                                    name: "Web3Modal",
+                                    description: "Web3Modal",
+                                    url: "web3modal.com",
+                                    icons: [
+                                        "https://walletconnect.com/_next/static/media/logo_mark.84dd8525.svg",
+                                    ],
+                                }}
+                            />
                         </Link>
                         <div className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1 ">
-                            <ConnectButton moralisAuth={false} />
+                            <button className="connect">Connect Wallet</button>
                         </div>
                     </div>
                 </div>

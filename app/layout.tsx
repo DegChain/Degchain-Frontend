@@ -14,10 +14,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <MoralisProvider initializeOnMount={false}>
-            <html lang="en">
-                <body className={inter.className}>{children}</body>
-            </html>
-        </MoralisProvider>
+        <html lang="en">
+            <body className={inter.className}>{children}</body>
+        </html>
     );
 }
