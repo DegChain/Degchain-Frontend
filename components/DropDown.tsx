@@ -26,10 +26,8 @@ const Dropdown = () => {
                         <button className="menu-item">Login</button>
                     </Link>
                     <hr className="separator" />
-                    <div className="menu-item">
-                        <div>
-                            <ConnectButton moralisAuth={false} />
-                        </div>
+                    <div>
+                        <ConnectButton moralisAuth={false} />
                     </div>
                 </div>
             )}

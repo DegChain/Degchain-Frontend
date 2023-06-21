@@ -38,7 +38,7 @@ const Navbar = () => {
                             Login
                         </button>
                     </Link>
-                    <div className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1 ">
+                    <div className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 m-1 ">
                         <ConnectButton moralisAuth={false} />
                     </div>
                 </div>
