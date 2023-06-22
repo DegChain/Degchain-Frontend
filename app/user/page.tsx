@@ -8,7 +8,7 @@ export default function View() {
       <nav className='flex flex-row justify-between bg-black px-2 w-full h-20 items-center fixed shadow-sm
     shadow-white'>
 
-        <Link href="/admin">
+        <Link href="/user">
           <Image src="/images/logo.png" alt="logo" width={65} height={65} />
         </Link>
 
