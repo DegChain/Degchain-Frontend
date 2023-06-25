@@ -77,26 +77,57 @@ export default function Home() {
                         </div>
                     </section>
 
-                    <section className="bg-stone-400 w-full">
-                        <h1>Start</h1>
-                        <div className="bg-grey">1</div>
+                    <section className="bg-stone-400 w-full px-10 py-4 text-black">
+                        <h1 className="p-5 pl-0 text-2xl font-medium text-white mb-2">How we start</h1>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 ">
+                            <div className="flex items-center  bg-zinc-300 h-16 p-3 rounded-md w-96 sm:w-auto">
+                                <span className="bg-white rounded-full px-3 py-1 ml-1 mr-2">1</span>
+                                <p className="text-lg m-1">Register admin and users</p>
+                            </div>
+                            <div className="flex items-center bg-zinc-300 h-16 p-3 rounded-md w-96 sm:w-auto">
+                                <span className="bg-white rounded-full px-3 py-1 ml-1 mr-2">2</span>
+                                <p className="text-lg m-1">Admin will upload certificates unique to a student</p>
+                            </div>
+                            <div className="flex items-center bg-zinc-300 h-16 p-3 rounded-md w-96 sm:w-auto">
+                                <span className="bg-white rounded-full px-3 py-1 ml-1 mr-2">3</span>
+                                <p className="text-lg m-1">Users will access certificates</p>
+                            </div>
+                            <div className="flex items-center bg-zinc-300 h-16 p-3 rounded-md w-96 sm:w-auto">
+                                <span className="bg-white rounded-full px-3 py-1 ml-1 mr-2">4</span>
+                                <p className="text-lg m-1">Certificate will be uploaded to IPFS</p>
+                            </div>
+                        </div>
                     </section>
 
-                    <section className="bg-black w-full h-98 text-white p-8">
-                        <h1>Contact Us</h1>
+                    <section className="bg-black w-full  text-black px-10 py-4">
+                        <h1 className="p-5 pl-0 text-2xl font-medium text-white mb-2">Contact Us</h1>
                         <form action="">
-                            <label htmlFor="name">Name</label>
-                            <input type="text" placeholder="" name="name" />
+                            <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4 ">
+                                <div>
+                                    <label htmlFor="name" className="text-white">Name:</label>
+                                    <input type="text" placeholder="Your Name" name="name" id="name"
+                                        className="mt-1 px-3 placeholder:italic   placeholder:text-slate-400 bg-white w-full border border-slate-300 rounded-md py-2" />
+                                </div>
 
-                            <label htmlFor="phone">Phone Number</label>
-                            <input type="text" placeholder="" name="phone" />
+                                <div>
+                                    <label htmlFor="phone" className="text-white">Phone Number:</label>
+                                    <input type="text" placeholder="7720****" name="phone" id="phone"
+                                        className="mt-1 px-3 placeholder:italic  placeholder:text-slate-400 bg-white w-full border border-slate-300 rounded-md py-2" />
+                                </div>
+                                <div>
+                                    <label htmlFor="email" className="text-white">Email:</label>
+                                    <input type="text" placeholder="eg. bcs_20xx@iiitm.ac.in" name="email" id="email"
+                                        className="mt-1 px-3 placeholder:italic  placeholder:text-slate-400 bg-white w-full border border-slate-300 rounded-md py-2" />
+                                </div>
 
-                            <label htmlFor="email">Email</label>
-                            <input type="text" placeholder="" name="email" />
-
-                            <label htmlFor="message">Message</label>
-                            <textarea placeholder="" name="message" />
-                            <button className="bg-white text-black">Go</button>
+                            </div>
+                            <div className="my-3">
+                                <label htmlFor="message" className="text-white" >Message:</label>
+                                <textarea placeholder="Tell us about your idea" name="message" id="message"
+                                    className="mt-1 px-3 placeholder:italic  placeholder:text-slate-400 bg-white w-full border border-slate-300 rounded-md py-2" />
+                            </div>
+                            <button className="bg-white text-black text-lg w-24 h-8 px-2 rounded-full m-1 ">Go</button>
                         </form>
                     </section>
 
