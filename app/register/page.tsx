@@ -26,20 +26,18 @@ export default function Register() {
                     style={{ background: 'url("/images/background.png")' }}
                 >
                     <div className="relative w-full px-4">
-                        <div className="absolute top-1 right-1">
-                            <div className="bg-white text-black align-middle sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1">
-                                <Button />
-                            </div>
+                        <div className="absolute top-2 right-1">
+                            <Button />
                         </div>
                         <Link href="/">
-                            <div className="flex flex-col items-center p-3 sm:p-6 gap-1">
+                            <div className="flex flex-col items-center p-3 gap-1">
                                 <Image
                                     src="/images/logo.png"
                                     alt="logo"
-                                    width={70}
-                                    height={70}
+                                    width={65}
+                                    height={65}
                                 />
-                                <h1 className="text-white text-3xl font-semibold px-3">
+                                <h1 className="text-white text-2xl sm:text-3xl font-semibold px-3">
                                     DegChain
                                 </h1>
                             </div>
@@ -47,16 +45,16 @@ export default function Register() {
                     </div>
 
                     <div
-                        className="container p-3 h-fit w-4/5 sm:w-96 bg-gray-800 opacity-90 text-black flex 
-      flex-col item-center gap-4 rounded-xl"
+                        className="container p-2 h-fit w-4/5 sm:w-96 bg-gray-800 opacity-90 text-black flex 
+      flex-col item-center gap-2 phone:gap-3 rounded-xl"
                     >
-                        <h1 className="text-white font-bold text-2xl text-center">
+                        <h1 className="text-white font-bold text-xl sm:text-2xl text-center">
                             Sign Up
                         </h1>
 
                         <hr className="text-white w-full  " />
 
-                        <div className="flex flex-row justify-evenly text-white  font-bold text-2xl text-center">
+                        <div className="flex flex-row justify-evenly text-white  font-bold text-xl sm:text-2xl text-center">
                             <button
                                 className="w-full h-fit rounded-md "
                                 style={{
@@ -92,19 +90,23 @@ export default function Register() {
                                     placeholder="Roll No"
                                     name="rollno"
                                 />
+                                <label htmlFor="dob" className="text-white self-start pl-9" >Date of Birth :</label>
                                 <input
                                     className="bg-slate-200 p-2 w-4/5 text-black  "
                                     type="Date"
                                     placeholder="Date of Birth"
                                     name="dob"
+                                    id="dob"
                                 />
+                                <label htmlFor="conf-dob" className="text-white self-start pl-9 " >Confirm Date of Birth :</label>
                                 <input
                                     className="bg-slate-200 p-2 w-4/5 text-black"
                                     type="Date"
                                     placeholder="Confirm Date of Birth"
                                     name="dob"
+                                    id="conf-dob"
                                 />
-                                <button className="bg-white w-4/5 font-bold py-2 px-4 m-1 sm:m-3 rounded-full text-black ">
+                                <button className="bg-white w-4/5 font-bold py-1 sm:py-2 px-4 m-1 sm:m-3 rounded-full text-black ">
                                     Sign Up
                                 </button>
                             </form>
@@ -127,7 +129,7 @@ export default function Register() {
                                     placeholder="Password"
                                     name="password"
                                 />
-                                <button className="bg-white w-4/5 font-bold py-2 px-4 m-1 sm:m-3 rounded-full text-black ">
+                                <button className="bg-white w-4/5 font-bold py-1 sm:py-2 px-4 m-1 sm:m-3 rounded-full text-black ">
                                     Sign Up
                                 </button>
                             </form>

@@ -14,10 +14,8 @@ export default function Login() {
                     style={{ background: 'url("/images/background.png")' }}
                 >
                     <div className="relative w-full px-4">
-                        <div className="absolute top-1 right-1">
-                            <div className="bg-white text-black align-middle sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 rounded-full m-1">
-                                <Button />
-                            </div>
+                        <div className="absolute top-2 right-1">
+                            <Button />
                         </div>
                         <Link href="/">
                             <div className="flex flex-col items-center p-3 sm:p-6 gap-1">

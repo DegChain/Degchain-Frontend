@@ -3,6 +3,7 @@ import Link from "next/link";
 import Dropdown from "./DropDown";
 import { useState } from "react";
 import { ConnectButton } from "web3uikit";
+import Button from "@/components/Button";
 
 import { useMoralis } from "react-moralis";
 const Navbar = () => {
@@ -38,9 +39,7 @@ const Navbar = () => {
                             Login
                         </button>
                     </Link>
-                    <div className="bg-white sm:text-md sm:w-24 h-9 phone:h-11  px-2 phone:px-3 m-1 ">
-                        <ConnectButton moralisAuth={false} />
-                    </div>
+                    <Button />
                 </div>
             </div>
         </nav>
