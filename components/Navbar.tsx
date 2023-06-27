@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Dropdown from "./DropDown";
-import { useState } from "react";
 import { ConnectButton } from "web3uikit";
 import Button from "@/components/Button";
 
