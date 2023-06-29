@@ -3,8 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import Button from "@/components/Button";
-import { MoralisProvider } from "react-moralis";
-import { NotificationProvider } from "web3uikit";
+
 export default function Login() {
     return (
         <div

@@ -12,7 +12,7 @@
         "@moralisweb3/next": "^2.21.0",
         "@web3uikit/web3": "^0.2.2",
         "axios": "^1.4.0",
-        "ethers": "^6.6.0",
+        "ethers": "^6.6.2",
         "magic-sdk": "^11.0.0",
         "moralis": "^2.21.0",
         "moralis-v1": "^1.12.0",
