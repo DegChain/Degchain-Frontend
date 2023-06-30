@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import Button from "@/components/Button";
 export default function Admin() {
     return (
         <div>
