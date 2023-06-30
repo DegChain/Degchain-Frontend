@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -72,16 +73,6 @@ export default function Register() {
             console.log(error);
         }
     }
-
-    useEffect(() => {
-        if (isWeb3Enabled) {
-            updateUIValues();
-        }
-    }, [isWeb3Enabled]);
-    //@ts-ignore
-    const handleUserRollNumberChange = (e) => {
-        setRollNumber(e.target.value);
-    };
 
     useEffect(() => {
         if (isWeb3Enabled) {
