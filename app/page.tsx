@@ -1,14 +1,5 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import {
-    contractAddress as DocContractAddress,
-    abi as DocABI,
-} from "../constants/DocumentManager/index";
-import {
-    contractAddress as UserContractAddress,
-    abi as UserABI,
-} from "../constants/UserManager/index";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import FeatureCard from "@/components/FeatureCard";
