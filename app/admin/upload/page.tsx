@@ -3,13 +3,14 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useMoralis } from "react-moralis";
 import { useWeb3Contract } from "react-moralis";
-import ipfsClient from "ipfs-http-client";
 import { useNotification } from "web3uikit";
 import {
     contractAddress as DocContractAddress,
     abi as DocManagerABI,
 } from "@/constants/DocumentManager/index";
 import { FiBell } from "react-icons/fi";
+import Moralis from "moralis";
+import fs from "fs";
 export default function Upload() {
     const { user, chainId } = useMoralis();
     const DocManagerAddress =
@@ -19,11 +20,6 @@ export default function Upload() {
     const [ownerAddress, setOwnerAddress] = useState("");
     const [documentName, setDocumentName] = useState("");
     const dispatch = useNotification();
-    const ipfs = ipfsClient.create({
-        host: "ipfs.infura.io",
-        port: 5001,
-        protocol: "https",
-    });
 
     useEffect(() => {
         // Set the ownerAddress state when the user is available
@@ -32,6 +28,7 @@ export default function Upload() {
         }
     }, [user]);
 
+    //uploadDocument from contract
     const {
         runContractFunction: uploadDocument,
         data: uploadDocumentResponse,
@@ -43,14 +40,36 @@ export default function Upload() {
         functionName: "uploadDocument",
         params: { documentName, ipfsHash, ownerAddress },
     });
+    async function uploadToIpfs() {
+        await Moralis.start({
+            apiKey: process.env.MORALIS_PRIVATE_KEY,
+        });
+    }
     //@ts-ignore
     const handleFileUpload = async (e) => {
         const file = e.target.files[0];
 
         if (file) {
+            await Moralis.start({
+                apiKey: process.env.MORALIS_PRIVATE_KEY,
+            });
             try {
-                const { cid } = await ipfs.add(file);
-                setIpfsHash(cid.toString());
+                //const fileContent = fs.readFileSync(file.path, {
+                //    encoding: "base64",
+                //});
+                //const { cid } = await ipfs.add(file);
+                //setIpfsHash(cid.toString());
+                const uploadArray = [
+                    {
+                        path: documentName,
+                        content: file,
+                    },
+                ];
+                const response = await Moralis.EvmApi.ipfs.uploadFolder({
+                    abi: uploadArray,
+                });
+                console.log(response.result);
+                setIpfsHash(response.result[0].path.slice(29));
             } catch (error) {
                 console.log(error);
                 dispatch({

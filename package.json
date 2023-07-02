@@ -11,10 +11,7 @@
     "dependencies": {
         "@moralisweb3/next": "^2.21.0",
         "@web3uikit/web3": "^0.2.2",
-        "axios": "^1.4.0",
-        "ipfs": "^0.66.1",
-        "ipfs-core": "^0.18.1",
-        "kubo-rpc-client": "^3.0.1",
+        "fs": "^0.0.1-security",
         "magic-sdk": "^11.0.0",
         "moralis": "^2.22.3",
         "moralis-v1": "^1.12.0",
