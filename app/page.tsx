@@ -1,15 +1,90 @@
 "use client";
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
-import Navbar from "@/components/Navbar";
 import FeatureCard from "@/components/FeatureCard";
 import DescriptionCard from "@/components/DescriptionCard";
-
+import { useRouter } from "next/router";
+import { useAuthRequestChallengeEvm } from "@moralisweb3/next";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { signIn, useSession } from "next-auth/react";
+import { useAccount, useSignMessage, useNetwork } from "wagmi";
+import { useEffect } from "react";
+import Image from "next/image";
+import Dropdown from "../components/DropDown";
 export default function Home() {
     //to get network information
+    const { isConnected, address } = useAccount();
+    const { chain } = useNetwork();
+    const { data: session, status } = useSession();
+    const { signMessageAsync } = useSignMessage();
+    const { push } = useRouter();
+    const { requestChallengeAsync } = useAuthRequestChallengeEvm();
+
+    useEffect(() => {
+        const handleAuth = async () => {
+            const message = (await requestChallengeAsync({
+                //@ts-ignore
+                address: address,
+                chainId: chain!.id,
+            }))!.message;
+
+            const signature = await signMessageAsync({ message });
+
+            // redirect user after success authentication to '/user' page
+            //@ts-ignore
+            const { url } = await signIn("moralis-auth", {
+                message,
+                signature,
+                redirect: false,
+                callbackUrl: "/user",
+            });
+            /**
+             * instead of using signIn(..., redirect: "/user")
+             * we get the url from callback and push it to the router to avoid page refreshing
+             */
+            push(url);
+        };
+        if (status === "unauthenticated" && isConnected) {
+            handleAuth();
+        }
+    }, [status, isConnected]);
+
     return (
         <main>
-            <Navbar />
+            <nav className="flex flex-row justify-between bg-black px-4 w-full h-20 items-center fixed shadow-sm shadow-white">
+                <Link href="/">
+                    <div className="px-2 phone:px-5 flex flex-row justify-start items-center">
+                        <Image
+                            src="/images/logo.png"
+                            alt="logo"
+                            width={65}
+                            height={65}
+                        />
+                        <h1 className="text-white text-xl sm:text-3xl font-semibold px-3">
+                            DegChain
+                        </h1>
+                    </div>
+                </Link>
+                <div className="flex flex-row justify-evenly basis-1/4">
+                    {session ? (
+                        <Dropdown />
+                    ) : (
+                        <div className="hidden sm:flex sm:flex-row">
+                            <Link href="/register">
+                                <button className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1">
+                                    Register
+                                </button>
+                            </Link>
+                            <Link href="/login">
+                                <button className="bg-white sm:text-lg sm:w-24 h-8 phone:h-10 px-2 phone:px-3 rounded-full m-1">
+                                    Login
+                                </button>
+                            </Link>
+                            <ConnectButton />
+                        </div>
+                    )}
+                </div>
+            </nav>
             <HeroSection />
             <section className="h-98 bg-black rounded-t-3xl mt-2">
                 <h2 className="text-white text-center pt-10 text-2xl font-medium px-10">

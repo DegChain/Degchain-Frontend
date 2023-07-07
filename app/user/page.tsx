@@ -8,7 +8,6 @@ import {
 } from "@/constants/DocumentManager/index";
 import { useMoralis, useWeb3Contract } from "react-moralis";
 import { useNotification } from "web3uikit";
-import ipfsClient from "ipfs-http-client";
 
 export default function View() {
     return (
