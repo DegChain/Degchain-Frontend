@@ -1,39 +1,39 @@
 {
-    "name": "degchain-frontend",
-    "version": "0.1.0",
+    "name": "certchain",
+    "version": "0.0.1",
     "private": true,
+    "workspaces": {
+        "packages": [
+            "packages/hardhat",
+            "packages/nextjs"
+        ]
+    },
     "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
+        "account": "yarn workspace @certchain/hardhat account",
+        "chain": "yarn workspace @certchain/hardhat chain",
+        "fork": "yarn workspace @certchain/hardhat fork",
+        "deploy": "yarn workspace @certchain/hardhat deploy",
+        "verify": "yarn workspace @certchain/hardhat verify",
+        "compile": "yarn workspace @certchain/hardhat compile",
+        "generate": "yarn workspace @certchain/hardhat generate",
+        "hardhat:lint": "yarn workspace @certchain/hardhat lint",
+        "hardhat:lint-staged": "yarn workspace @certchain/hardhat lint-staged",
+        "hardhat:test": "yarn workspace @certchain/hardhat test",
+        "start": "yarn workspace @certchain/nextjs dev",
+        "next:lint": "yarn workspace @certchain/nextjs lint",
+        "next:format": "yarn workspace @certchain/nextjs format",
+        "next:check-types": "yarn workspace @certchain/nextjs check-types",
+        "postinstall": "husky install",
+        "precommit": "lint-staged",
+        "vercel": "yarn workspace @certchain/nextjs vercel",
+        "vercel:yolo": "yarn workspace @certchain/nextjs vercel:yolo"
     },
-    "dependencies": {
-        "@moralisweb3/next": "^2.21.0",
-        "@rainbow-me/rainbowkit": "^1.0.4",
-        "@web3uikit/web3": "^0.2.2",
-        "fs": "^0.0.1-security",
-        "magic-sdk": "^11.0.0",
-        "moralis": "^2.22.3",
-        "moralis-v1": "^1.12.0",
-        "next": "13.4.4",
-        "next-auth": "^4.22.1",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "react-icons": "^4.10.1",
-        "react-moralis": "^1.4.2",
-        "tailwindcss": "3.3.2",
-        "viem": "^1.2.9",
-        "wagmi": "^1.2.0",
-        "web3uikit": "^1.0.4"
-    },
+    "packageManager": "yarn@3.2.3",
     "devDependencies": {
-        "@types/node": "20.2.5",
-        "@types/react": "18.2.9",
-        "@types/react-dom": "18.2.4",
-        "autoprefixer": "10.4.14",
-        "eslint": "8.42.0",
-        "eslint-config-next": "13.4.4",
-        "typescript": "5.1.3"
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3"
+    },
+    "resolutions": {
+        "usehooks-ts@^2.7.2": "patch:usehooks-ts@npm:^2.7.2#./.yarn/patches/usehooks-ts-npm-2.7.2-fceffe0e43.patch"
     }
 }
