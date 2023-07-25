@@ -1,4 +1,4 @@
-# Certchain Contracts
+# Degchain Contracts
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Hardhat](https://hardhat.org/buidler-plugin-badge.svg)](https://hardhat.org/)
@@ -6,7 +6,7 @@
 
 ## Description
 
-Certchain Contracts is a collection of smart contracts designed for managing user registration and document storage in a decentralized manner. It provides functionality for registering users, uploading and retrieving documents, and verifying document ownership.
+Degchain Contracts is a collection of smart contracts designed for managing user registration and document storage in a decentralized manner. It provides functionality for registering users, uploading and retrieving documents, and verifying document ownership.
 
 ## Features
 
