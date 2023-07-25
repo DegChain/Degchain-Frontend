@@ -44,9 +44,11 @@ export default function View() {
     // ... any other documents you want to include
   ];
   return (
-    <div className="min-h-screen bg-gray-100">
-      <nav className="bg-black px-2 py-4 flex items-center justify-between">{/* Your navigation components */}</nav>
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div
+      className="bg-cover w-full h-screen flex flex-row justify-center items-center"
+      style={{ background: 'url("/images/background.png")' }}
+    >
+      <main className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="text-3xl font-bold mb-8">User Documents</h1>
         {userDocuments.length === 0 ? (
           <p>No documents available.</p>
@@ -54,7 +56,7 @@ export default function View() {
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {userDocuments.map((document, index) => (
               <li key={index} className="bg-white overflow-hidden shadow-md rounded-lg p-4">
-                <h2 className="text-lg font-medium mb-2">
+                <h2 className="text-lg font-medium mb-2 text-black">
                   {
                     //@ts-ignore
                     document.documentName
@@ -62,10 +64,7 @@ export default function View() {
                 </h2>
                 <div className="flex items-center gap-2">
                   <a
-                    href={`https://ipfs.io/ipfs/${
-                      //@ts-ignore
-                      document.ipfsHash
-                    }`}
+                    href="https://drive.google.com/file/d/1_cvWmE8Igeik4mlEFYD5rk-OM8BEgtjY/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 underline"

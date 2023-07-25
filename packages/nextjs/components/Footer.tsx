@@ -46,12 +46,12 @@ export const Footer = () => {
             <div>
               Built with <HeartIcon className="inline-block h-4 w-4" /> at 🏰{" "}
               <a
-                href="https://certchain.com/"
+                href="https://degchain.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="underline underline-offset-2"
               >
-                CertChain
+                DegChain
               </a>
             </div>
             <span>·</span>
