@@ -1,6 +1,6 @@
+import { connect } from "../../../dbConfig/dbConfig";
 import { NextApiRequest, NextApiResponse } from "next";
 import Support, { ISupportModel } from "~~/models/support";
-import dbConnect from "~~/utils/dbConnect";
 
 interface FormData {
   name: string;
@@ -10,7 +10,7 @@ interface FormData {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  await dbConnect();
+  connect();
 
   if (req.method === "POST") {
     const { name, phone, email, message }: FormData = req.body;

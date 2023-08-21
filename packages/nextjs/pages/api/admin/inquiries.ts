@@ -1,10 +1,10 @@
+import { connect } from "../../../dbConfig/dbConfig";
 import { NextApiRequest, NextApiResponse } from "next";
 import Support, { ISupportModel } from "~~/models/support";
-import dbConnect from "~~/utils/dbConnect";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    await dbConnect();
+    connect();
 
     const inquiries: ISupportModel[] = await Support.find({}).sort({ createdAt: -1 });
 

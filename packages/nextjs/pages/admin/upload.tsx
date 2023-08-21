@@ -1,20 +1,20 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { create } from "ipfs-http-client";
 import { toast } from "react-hot-toast";
 import { useAccount, useDisconnect, useNetwork } from "wagmi";
-import { useContractWrite } from "wagmi";
-import { abi as DocABI, contractAddress as DocContractAddress } from "~~/constants/DocumentManager";
+import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
+const projectId = "2UFRKWM8a2EvI39sxedeih0b9IW";
+const projectSecret = "3ec06901416afcfe5dfb0aaa0c6d0f19";
 // Update the IPFS endpoint to use Infura
 const ipfs = create({
   host: "ipfs.infura.io",
   port: 5001,
   protocol: "https",
   headers: {
-    authorization: "Basic 2T4CkcRieAvnS5f2b0MZNAr0rk6:ff75b3160ac03b01dadd0abc99297bc5",
+    authorization: `Basic ${Buffer.from(`${projectId}:${projectSecret}`).toString("base64")}`,
   },
 });
 
@@ -32,7 +32,7 @@ export default function Upload() {
   const { chain, chains } = useNetwork();
   const chainId = chain?.id.toString;
   //@ts-ignore
-  const DocumentManagerAddress = DocContractAddress[chainId];
+
   const { address } = useAccount();
   const [rollNumber, setRollNumber] = useState("");
   const [ipfsHash, setIpfsHash] = useState("");
@@ -47,9 +47,8 @@ export default function Upload() {
   }, [address]);
 
   //uploadDocument from contract
-  const uploadDocument = useContractWrite({
-    address: DocumentManagerAddress,
-    abi: DocABI,
+  const uploadDocument = useScaffoldContractWrite({
+    contractName: "YourContract",
     functionName: "uploadDocument",
     args: [documentName, ipfsHash, rollNumber],
   });
@@ -60,11 +59,13 @@ export default function Upload() {
 
     try {
       const added = await ipfs.add(file, addOptions);
+      console.log(`added = ${added}`);
+      console.log(`added.path = ${added.path}`);
       setIpfsHash(added.cid.toString());
     } catch (error) {
       console.error(error);
       console.log(`error = ${error}`);
-      toast.success("Document uploaded successfully.");
+      toast.success("Failed to upload document.");
     }
   };
 

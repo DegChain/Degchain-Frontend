@@ -1,0 +1,49 @@
+Set up the development environment: Install Node.js, Hardhat, and Next.js. 
+Create a new Next.js project and initialize a new Hardhat project inside it.
+
+Define the smart contract: Define a smart contract using Solidity that will 
+store the basic information of the student and the mark records. 
+The contract should have functions for adding a new student, adding mark 
+records, and generating certificates.
+
+Write the smart contract tests: Write tests for the smart contract using Hardhat. 
+Test all the functions of the contract to ensure that they work as expected.
+
+Set up the database: Set up a database to store the basic information of the \
+student and the mark records. You can use a blockchain-based database like 
+OrbitDB or a traditional database like MongoDB.
+
+Implement the Recorder functionality: Implement the Recorder functionality 
+using the smart contract and the database. Create a form that allows the 
+admin to enter the basic information of the student and store it in the 
+database using the smart contract.
+
+Implement the Document Generator functionality: Implement the Document 
+enerator functionality using the smart contract and the database. 
+Create a form that allows the admin to enter the mark records for a student 
+and generate certificates using the smart contract. Use a PDF generation 
+library like jsPDF or ReportLab to generate the certificates.
+
+Implement the IPFS integration: Implement the IPFS integration to store the 
+certificates in IPFS. Use the IPFS HTTP client to upload the certificates to 
+IPFS and store the IPFS hash in the smart contract.
+
+Implement the verifier public key hashing: Implement the verifier public key 
+hashing to store the verifier public key in the certificate. Use a hashing 
+algorithm like SHA-256 to hash the verifier public key and store the hash 
+in the certificate.
+
+Implement the automation using Chainlink Keepers: Implement the automation 
+using Chainlink Keepers to automate the certificate generation process. 
+Use Chainlink Keepers to trigger the certificate generation process when 
+new mark records are added to the smart contract.
+
+Implement the student dashboard: Implement the student dashboard 
+using Next.js. Create a page that allows the student to view their 
+certificates. Use the IPFS HTTP client to retrieve the certificates 
+from IPFS and display them on the page.
+
+Write the integration tests: Write integration tests for the entire 
+application to ensure that all the components work together as expected.
+
+

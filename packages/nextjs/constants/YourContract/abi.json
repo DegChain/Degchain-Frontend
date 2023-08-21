@@ -1,5 +1,10 @@
 [
   {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
     "inputs": [
       {
         "internalType": "string",
@@ -138,6 +143,25 @@
   {
     "inputs": [
       {
+        "internalType": "uint256",
+        "name": "documentId",
+        "type": "uint256"
+      }
+    ],
+    "name": "documentExists",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "string",
         "name": "rollNumber",
         "type": "string"
@@ -177,9 +201,145 @@
             "type": "address"
           }
         ],
-        "internalType": "struct UserManager.Admin",
+        "internalType": "struct YourContract.Admin",
         "name": "",
         "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "documentId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getDocument",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "documentId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "documentName",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "ownerAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct YourContract.Document",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "documentId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getDocumentOwner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getDocuments",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "documentId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "documentName",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "ownerAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct YourContract.Document[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "rollNumber",
+        "type": "string"
+      }
+    ],
+    "name": "getOwnerDocuments",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "documentId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "documentName",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "ownerAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "ipfsHash",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct YourContract.Document[]",
+        "name": "",
+        "type": "tuple[]"
       }
     ],
     "stateMutability": "view",
@@ -231,21 +391,26 @@
         "components": [
           {
             "internalType": "string",
-            "name": "rollNumber",
+            "name": "name",
             "type": "string"
           },
           {
             "internalType": "string",
-            "name": "dateOfBirth",
+            "name": "rollNumber",
             "type": "string"
           },
           {
             "internalType": "address",
             "name": "accountAddress",
             "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "dateOfBirth",
+            "type": "string"
           }
         ],
-        "internalType": "struct UserManager.User",
+        "internalType": "struct YourContract.User",
         "name": "",
         "type": "tuple"
       }
@@ -308,6 +473,11 @@
         "internalType": "string",
         "name": "rollNumber",
         "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
       }
     ],
     "name": "registerUser",
@@ -329,6 +499,29 @@
       }
     ],
     "name": "setRollNumberToDOB",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "documentName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "ipfsHash",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "rollNumber",
+        "type": "string"
+      }
+    ],
+    "name": "uploadDocument",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNetwork } from "wagmi";
-import { useContractWrite } from "wagmi";
-import { abi as UserABI, contractAddress as UserContractAddress } from "~~/constants/UserManager/index";
 
 export default function New() {
   const router = useRouter();
@@ -18,13 +17,6 @@ export default function New() {
   const [rollNumber, setRollNumber] = useState("");
 
   //Add new record
-  const setRollNumberToDOB = useContractWrite({
-    address: UserManagerAddress,
-    abi: UserABI,
-    functionName: "setRollNumberToDOB",
-    //@ts-ignore
-    args: [rollNumber, dateOfBirth],
-  });
 
   const handleUserRollNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRollNumber(e.target.value);
@@ -36,7 +28,7 @@ export default function New() {
 
   const handleNewUser = async () => {
     try {
-      await setRollNumberToDOB.writeAsync();
+      const response = await axios.post("/api/admin/new", { rollNumber, dateOfBirth });
       toast.success("Transaction Successful");
       // Navigate back to the homepage after successful transaction
       router.push("/");

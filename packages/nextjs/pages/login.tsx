@@ -2,30 +2,25 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useContractRead, useContractWrite } from "wagmi";
 import { useAccount, useNetwork } from "wagmi";
-import { abi as UserABI, contractAddress as UserContractAddress } from "~~/constants/UserManager";
+import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 
 export default function Login() {
-  const [v, setV] = useState("");
   const [user_, setuser] = useState(true);
   const [admin, setadmin] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const chainID: string = useNetwork().chain?.id.toString() || "";
   const accountAddress = useAccount().address;
   //@ts-ignore
-  const UserManagerAddress = UserContractAddress[chainID];
+
   const handleNewNotification = (s: string) => {
     toast.success("Transaction Complete!\n" + s, {
-      icon: "bell",
       position: "top-right",
     });
   };
-  function handleChange(e: React.FormEvent) {
-    //@ts-ignore
-    setV(e.target.value);
-  }
 
   const handleUser = () => {
     setuser(true);
@@ -36,24 +31,21 @@ export default function Login() {
     setadmin(true);
     setuser(false);
   };
-  const loginAdmin = useContractRead({
-    address: UserManagerAddress,
-    abi: UserABI,
-    functionName: "loginAdmin",
-  });
-  const loginUser = useContractRead({
-    address: UserManagerAddress,
-    abi: UserABI,
+
+  const loginUser = useScaffoldContractRead({
+    contractName: "YourContract",
     functionName: "loginUser",
   });
   const handleSubmit = async (e: React.FormEvent) => {
     try {
+      setLoading(true);
+      var response;
       e.preventDefault();
       // Perform any necessary form validation or data processing
       if (admin) {
-        await loginAdmin.data;
+        response = await axios.post("/api/admin/login", accountAddress);
       } else {
-        await loginUser.data;
+        response = await axios.post("/api/user/login", accountAddress);
       }
       // Redirect to the dynamic dashboard page
       if (user_) {
@@ -61,10 +53,12 @@ export default function Login() {
           pathname: `/user`,
         });
       } else if (admin) {
-        router.push(`/admin/${accountAddress}`);
+        router.push(`/admin`);
       }
     } catch (error) {
-      toast.error("Fucked, error " + error);
+      toast.error("There is some, error " + error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -106,8 +100,7 @@ export default function Login() {
             type="text"
             placeholder="Private Key"
             name="key"
-            onChange={handleChange}
-            value={v}
+            value={accountAddress}
           />
           <button className="bg-white w-4/5 font-bold py-2 px-4  m-2 rounded-full text-black ">Sign In</button>
         </form>
